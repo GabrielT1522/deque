@@ -13,7 +13,7 @@ int main ()
     Deque<int> intQ;
 
     printf ( "isEmpty(1): %d\n", intQ.isEmpty ( ) ? 1 : 0 );
-    intQ.insertFirst ( 4 );
+    intQ.insertFirst(4);
     printf ( "removeLast(4): %d\n", intQ.removeLast ( ) );
     intQ.insertFirst ( 5 );
     intQ.insertFirst ( 12 );

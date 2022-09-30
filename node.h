@@ -13,11 +13,5 @@ class Node {
 public:
     Node *prev, *next;
     Type element;
-
-    Node(Type o){
-        element = o;
-        next = NULL;
-        prev = NULL;
-    }
 };
 #endif
