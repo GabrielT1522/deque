@@ -1,6 +1,8 @@
+//CSCE 3301 - Algorithms and Data Structures
+//deque.h
+//Deques and Doubly Linked Lists
 //
 // Created by Gabriel Torres on 9/23/22.
-//
 
 #ifndef DEQUE_H
 #define DEQUE_H

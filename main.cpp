@@ -1,3 +1,9 @@
+//CSCE 3301 - Algorithms and Data Structures
+//main.cpp
+//Deques and Doubly Linked Lists
+//
+// Created by Gabriel Torres on 9/23/22.
+
 #include <iostream>
 #include "deque.h"
 
