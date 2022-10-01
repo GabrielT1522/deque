@@ -1,6 +1,6 @@
-//CSCE 3301 - Algorithms and Data Structures
-//deque.h
-//Deques and Doubly Linked Lists
+// CSCE 3301 - Algorithms and Data Structures
+// deque.h
+// Deques and Doubly Linked Lists
 //
 // Created by Gabriel Torres on 9/23/22.
 
@@ -10,24 +10,18 @@
 #include <iostream>
 using namespace std;
 
-template <class Type>
-class Deque {
+template <class Type> class Deque {
 private:
     Node<Type> *front, *rear;
     int count;
 
 public:
-    Deque(){
+    Deque() {
         count = 0;
-        front = new Node<Type>();
-        rear = new Node<Type>();
-
-        front->next = rear;
-        rear->prev = front;
+        front = NULL;
+        rear = NULL;
     };
-    ~Deque(){
-        cout << "Deque has been deconstructed\n";
-    };
+    ~Deque() { cout << "Deque has been deconstructed\n"; };
     bool isEmpty() {
         if (size() == 0) {
             return true;
@@ -36,7 +30,7 @@ public:
         }
     };
     int size() { return count; };
-    Type first(){
+    Type first() {
         if (isEmpty()) {
             cout << "Deque is empty\n";
             return -1;
@@ -44,7 +38,7 @@ public:
             return front->element;
         }
     };
-    Type last(){
+    Type last() {
         if (isEmpty()) {
             cout << "Deque is empty\n";
             return -1;
@@ -52,59 +46,60 @@ public:
             return rear->element;
         }
     };
-    void insertFirst(Type o){
+    void insertFirst(Type o) {
         auto *newNode = new Node<Type>();
         newNode->element = o;
-        if (front == NULL){
+        if (front == NULL) {
             front = rear = newNode;
-        }else{
+        } else {
             newNode->next = front;
             front->prev = newNode;
             front = newNode;
         }
         count++;
     };
-    void insertLast(Type o){
+    void insertLast(Type o) {
         auto *newNode = new Node<Type>();
         newNode->element = o;
-        if (rear == NULL){
+        if (rear == NULL) {
             front = rear = newNode;
-        }else{
+        } else {
             newNode->prev = rear;
             rear->next = newNode;
             rear = newNode;
-        };
-
+        }
         count++;
     };
-    Type removeFirst(){
-        if (isEmpty()){
+    Type removeFirst() {
+        if (isEmpty()) {
             cout << "Deque is empty.\n";
-        }else{
-            auto *tempNode = front;
-            front = front->next;
-            if (front == NULL){
-                rear = NULL;
-            }else {
-                front->prev = rear;
+        } else {
+            if (front == rear) {
+                front == rear == NULL;
+                free(front);
+            } else {
+                auto tempNode = front;
+                front = front->next;
+                front->prev = NULL;
+                free(tempNode);
             }
-            free(tempNode);
             count--;
         }
         return front->element;
     };
     Type removeLast() {
-        if (isEmpty()){
+        if (isEmpty()) {
             cout << "Deque is empty.\n";
-        }else{
-            auto *tempNode = rear;
-            rear = rear->prev;
-            if (rear == NULL){
-                front = NULL;
-            }else {
-                rear->next = front;
+        } else {
+            if (front == rear) {
+                front == rear == NULL;
+                free(rear);
+            } else {
+                auto tempNode = rear;
+                rear = rear->prev;
+                rear->next = NULL;
+                free(tempNode);
             }
-            free(tempNode);
             count--;
         }
         return rear->element;
