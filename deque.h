@@ -81,7 +81,7 @@ public:
             } else {
                 front = front->next;
                 front->prev = NULL;
-                //free(tempNode);
+                free(tempNode);
             }
             count--;
         }
@@ -99,7 +99,7 @@ public:
 
                 rear = rear->prev;
                 rear->next = NULL;
-                //free(tempNode);
+                free(tempNode);
             }
             count--;
         }
