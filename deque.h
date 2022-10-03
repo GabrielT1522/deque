@@ -71,6 +71,7 @@ public:
         count++;
     };
     Type removeFirst() {
+        auto tempNode = front;
         if (isEmpty()) {
             cout << "Deque is empty.\n";
         } else {
@@ -78,16 +79,16 @@ public:
                 front == rear == NULL;
                 free(front);
             } else {
-                auto tempNode = front;
                 front = front->next;
                 front->prev = NULL;
-                free(tempNode);
+                //free(tempNode);
             }
             count--;
         }
-        return front->element;
+        return tempNode->element;
     };
     Type removeLast() {
+        auto tempNode = rear;
         if (isEmpty()) {
             cout << "Deque is empty.\n";
         } else {
@@ -95,14 +96,14 @@ public:
                 front == rear == NULL;
                 free(rear);
             } else {
-                auto tempNode = rear;
+
                 rear = rear->prev;
                 rear->next = NULL;
-                free(tempNode);
+                //free(tempNode);
             }
             count--;
         }
-        return rear->element;
+        return tempNode->element;
     };
 };
 #endif
